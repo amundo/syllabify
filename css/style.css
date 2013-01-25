@@ -1,0 +1,23 @@
+body { 
+  background: blue;
+}
+
+div#wrapper { 
+  background: white;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+input#alphabet { 
+  width: 50em;
+  font-size:large;
+}
+
+div#syllabifier { 
+  display: flex;
+  flex-flow: row wrap;
+}
+
+div#syllabifier ul { 
+  flex: 1;
+}

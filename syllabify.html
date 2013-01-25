@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>
+</title>
+<meta charset=utf-8>
+<script src=js/jquery.js></script>
+<script src=js/underscore.js></script>
+<script src=js/backbone.js></script>
+<script src=js/d3.v3.js></script>
+<script src=js/prefixfree.js></script>
+<script src=js/syllabify.js></script>
+<script>
+
+$(function(){
+
+$('#words li').each(function(i,li){
+  var word = li.textContent;
+  var syllabified = syllabify(word);
+  $('#syllabifiedWords').append('<li>' + syllabified + '</li>');
+})
+
+})
+</script>
+
+
+<link rel=stylesheet href=css/style.css />
+
+</head>
+<body>
+
+
+<div id=wrapper>
+<input id=alphabet>
+
+<div id=syllabifier>
+<ul id=words>
+<li>kita</li>
+<li>ako</li>
+<li>gid</li>
+<li>mayong</li>
+<li>maayong</li>
+</ul>
+
+<ul id=syllabifiedWords> </ul>
+</div><!-- syllabifier -->
+
+</div><!-- wrapper -->
+</body>
+</html>
