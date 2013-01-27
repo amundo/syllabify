@@ -1,46 +1,80 @@
 <!doctype html>
 <html>
 <head>
-<title>
-</title>
+<title>Syllabifying Hiligaynon</title>
 <meta charset=utf-8>
 <script src=js/jquery.js></script>
 <script src=js/underscore.js></script>
 <script src=js/backbone.js></script>
 <script src=js/d3.v3.js></script>
 <script src=js/prefixfree.js></script>
+<script src=js/deaccent.js></script>
 <script src=js/syllabify.js></script>
-<script>
-
-$(function(){
-
-$('#words li').each(function(i,li){
-  var word = li.textContent;
-  var syllabified = syllabify(word);
-  $('#syllabifiedWords').append('<li>' + syllabified + '</li>');
-})
-
-})
-</script>
-
-
 <link rel=stylesheet href=css/style.css />
+<script type=text/template id=wordTemplate>
 
+  <ol class=word>
+    <li class=spelling lang=hil><%= spelling %></li>
+    <li class=phonemes></li>
+    <li class=syllables></li>
+  </ol>
+
+</script>
 </head>
 <body>
 
+<textarea style="display:none" id=wordList>
+deepest ang chicks chicks ang frutas nga indi kauyon diin ginapanguha
+ang obra bulig lol mom families bro blessings inday sus pagkadamo
+nga chocs kita pagbalik lol degrees iya tuod nga nabasa isa nga
+gindala tungud damo iya stabbed sugid nia nga nagdamgo sia nga
+ginsulod sia aswang moskitero kuha iya nga ginhulid kag tudo nia
+buno ang aswang sila naka bugtaw sia kag nakita nya duguon siya nia
+iya ginbuno lives preparing inyo nga wickeds bro subong nga nga sia
+ang manugbulong nga paktan balatian tulukon hehehe accdg permi nga
+klasmeyt gina countdown ang akon prayers deepest bilin kuring
+kumander sya ibabaw ipot karbaw ayhan ang pamatyag lolo politicians
+richer gets poorer manufactured lies gab-i lang buas lang sige
+nilutu-ay nyo nang hahahaha mangape loves buwas lang mangape having
+</textarea>
+
 
 <div id=wrapper>
-<input id=alphabet>
+<input value="a á  à b c ch d e é è g h i í ì k l m n ng o ó ò p r s t u ú ù v w y z ’ '" id=alphabet>
 
 <div id=syllabifier>
-<ul id=words>
-<li>kita</li>
-<li>ako</li>
-<li>gid</li>
-<li>mayong</li>
-<li>maayong</li>
-</ul>
+<div id=words>
+
+  <ol class=word>
+    <li class=spelling lang=hil>ANÓ</li>
+    <li class=phonemes></li>
+    <li class=syllables></li>
+  </ol>
+
+  <ol class=word>
+    <li class=spelling lang=hil>kita</li>
+    <li class=phonemes></li>
+    <li class=syllables></li>
+  </ol>
+  <ol class=word>
+    <li class=spelling lang=hil>ngálan</li>
+    <li class=phonemes></li>
+    <li class=syllables></li>
+  </ol>
+  <ol class=word>
+    <li class=spelling lang=hil>diutay</li>
+    <li class=phonemes></li>
+    <li class=syllables></li>
+  </ol>
+  <ol class=word>
+    <li class=spelling lang=hil>duplá</li>
+    <li class=phonemes></li>
+    <li class=syllables></li>
+  </ol>
+
+
+
+</div>
 
 <ul id=syllabifiedWords> </ul>
 </div><!-- syllabifier -->

@@ -1,5 +1,4 @@
 body { 
-  background: blue;
 }
 
 div#wrapper { 
@@ -14,10 +13,22 @@ input#alphabet {
 }
 
 div#syllabifier { 
-  display: flex;
-  flex-flow: row wrap;
 }
 
-div#syllabifier ul { 
-  flex: 1;
+div#words { 
+  column-count: 3;
+  column-rule: solid 8px;
+  padding: 1em;
+}
+
+ol.word li { 
+  list-style:none;
+}
+
+li[lang=hil] {
+  font-family: sans-serif;
+}
+
+li.phonemes {
+  font-family: monospace;
 }

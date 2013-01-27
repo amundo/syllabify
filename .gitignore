@@ -1,2 +1,4 @@
 wickedCorpus*
 *.pyc
+local/
+tauberer/
