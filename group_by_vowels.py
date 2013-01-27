@@ -6,12 +6,14 @@ import json
 from random import choice
 from hiligaynon import *
 
-def is_vowel(letter): return set(letter).issubset(set(VOWELS))
+def is_vowel(letter): 
+  return set(letter).issubset(set(VOWELS))
 
-def all_vowels(phonemes): return all([is_vowel(letter) for letter in phonemes])
+def all_vowels(phonemes): 
+  return all([is_vowel(letter) for letter in phonemes])
 
-def group_by_vowels(word):
-  return [group for group in re.compile(vowelRE).split(word) if group]
+def segment_by_vowels(word):
+  return [segment for segment in re.compile(vowelRE).split(word) if segment]
 
 def split_by_onsets(consonants):
   """
@@ -20,21 +22,29 @@ def split_by_onsets(consonants):
   suffix which is also a possible onset  
   (The onset list also needs editing, probably)
   """
-  onsetRE = re.compile('(wh|tw|tr|th|dy|ty|sy|sw|st|sm|sh|pw|pr|pl|ng|kw|kl|gr|fr|fl|dr|cr|cl|ch|br|z|y|w|v|t|s|r|q|p|n|m|l|k|j|h|g|f|d|c|b)')
-  return [group for group in onsetRE.split(consonants) if group]
+  return [segment for segment in onsetRE.split(consonants) if segment]
+
+def segmentize(word):
+  segments = []
+  for segment in  segment_by_vowels(word):
+    if all_vowels(segment):
+      segments.append(segment)
+    else:
+      segments.extend(split_by_onsets(segment))
+  return segments
+
+def cvize(segments):
+  schema = ''
+  for s in segments:
+    if all_vowels(s): schema += 'V'
+    else: schema += 'C'
+  return schema
 
 if __name__ == "__main__":
   sample = set(json.load(sys.stdin))
   for word in sample: 
-    #line = line.decode('utf-8')
-    #print u'·'.join(group_by_vowels(line))
-    groups = []
-    for group in  group_by_vowels(word):
-      if all_vowels(group):
-        groups.append(group)
-      else:
-        groups.extend(split_by_onsets(group))
-    print '|'.join(groups)
-    #if not all_vowels(groups[0]): print groups[0]
+    segments = segmentize(word)
+    print cvize(segments)
+    #print '|'.join(segments)
 
 
