@@ -14,9 +14,9 @@ Get a bunch of words.
 Define any digraphs or trigraphs, and split the word into a list of graphemes. 
 (ng is a digraph here).
 
-> ilonggo  →  i|l|o|ng|g|o
+> ilonggo  →  i | l | o | ng | g | o
 >
-> halong  → h|a|l|o|ng
+> halong  → h | a | l | o | ng
 
 Make a list of everything-up-to-the-first-vowel in each word. These are the 
 canonical onsets.
@@ -26,7 +26,7 @@ h, k, br.
 
 Split the word into vowel sequences and consonant sequences:
 
-> ilonggo → i-l-o-ng|g-o
+> ilonggo → i-l-o-ng | g-o
 >
 > halong → h-a-l-o-ng
 
@@ -47,9 +47,9 @@ word. Here's the whole procedure:
 >
 > ilonggo
 >
-> i|l|o|ng|g|o
+> i | l | o | ng | g | o
 >
-> i-l-o-ng|g-o
+> i-l-o-ng | g-o
 >
 > i-l-o-ng-g-o
 > 
