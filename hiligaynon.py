@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 import re
 
-SYLLABLEPATTERNS = """V
+SYLLABLEPATTERNS = """
 CV
-CVC""".strip().split()
+CVC
+CVCV
+CVCCV
+CVCCVC
+""".strip().split()
 
 VOWELS = u'áéíóúaeiouàèìòùÁÉÍÓÚAEIOUÀÈÌÒÙ'
 vowelRE = u'([' + VOWELS + '])'
