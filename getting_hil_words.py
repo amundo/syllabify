@@ -20,12 +20,13 @@ for v in wicked.values():
 
 #text = re.sub('\.\.[\.]+', '', text)
 text = re.sub('\.[\.]+', '. ' , text)
+text = re.sub('\.[\\]+', ' ' , text)
 
 sentences = nltk.sent_tokenize(text)
 words = []
 [words.extend(nltk.word_tokenize(sent)) for sent in sentences]
 
-words = [ w for w in words if set(w).intersection(set('aeiou'))]
+words = [ w for w in words if set(w).intersection(set(u'aeiouáéíóú'))]
 
 vocab = set(words)
 engvocab = set(eng)
